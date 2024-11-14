@@ -1,13 +1,13 @@
 CC = gcc
 CFLAGS = 
 
-objects = test.o clv.o
+testObjects = tests/test.o src/clv.o
 
-src/tests: src/test.o src/clv.o
+tests: $(testObjects)
 	$(CC) -o $@ $^
 
-$(objects): %.o: %.c
-	$(CC) -c $^ -o $@
+$(testObjects): %.o: %.c
+	$(CC) -o $@ -c ./$^
 
 clean:
-	rm ./src/*.o
+	rm ./**/*.o
