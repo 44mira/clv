@@ -8,6 +8,34 @@ static const char clvFail[] = "\x1b[41;30m FAIL \x1b[0m";
 static uint testCount = 0;
 char *testLabel;
 
+/**
+ * Prints out the formatted PASS message using the current testLabel
+ *
+ * @param line The line where the assertion was made
+ */
+static void CLV_PASS(uint line) {
+  if (strcmp(testLabel, "") == 0) {
+    printf("%s | TEST #%02u LINE %-5u\n", clvPass, testCount, line);
+  } else {
+    printf("%s | TEST #%02u LINE %-5u | %s\n", clvPass, testCount, line,
+           testLabel);
+  }
+}
+
+/**
+ * Prints out the formatted FAIL message using the current testLabel
+ *
+ * @param line The line where the assertion was made
+ */
+static void CLV_FAIL(uint line) {
+  if (strcmp(testLabel, "") == 0) {
+    printf("%s | TEST #%02u LINE %-5u\n", clvFail, testCount, line);
+  } else {
+    printf("%s | TEST #%02u LINE %-5u | " TEXT_RED("%s") "\n", clvFail,
+           testCount, line, testLabel);
+  }
+}
+
 /* Setup Abstraction ------------------------------------------------------- */
 
 void CLV_SETUP() {
@@ -33,22 +61,4 @@ void CLV_ASSERT(CLV_BOOL condition, uint line) {
 
   // Invalidate label
   TEST_LABEL("");
-}
-
-void CLV_PASS(uint line) {
-  if (strcmp(testLabel, "") == 0) {
-    printf("%s | TEST #%02u LINE %-5u\n", clvPass, testCount, line);
-  } else {
-    printf("%s | TEST #%02u LINE %-5u | %s\n", clvPass, testCount, line,
-           testLabel);
-  }
-}
-
-void CLV_FAIL(uint line) {
-  if (strcmp(testLabel, "") == 0) {
-    printf("%s | TEST #%02u LINE %-5u\n", clvFail, testCount, line);
-  } else {
-    printf("%s | TEST #%02u LINE %-5u | " TEXT_RED("%s") "\n", clvFail,
-           testCount, line, testLabel);
-  }
 }

@@ -24,20 +24,6 @@ typedef unsigned int uint;
 void CLV_ASSERT(CLV_BOOL condition, uint line);
 
 /**
- * Prints out the formatted PASS message using the current testLabel
- *
- * @param line The line where the assertion was made
- */
-void CLV_PASS(uint line);
-
-/**
- * Prints out the formatted FAIL message using the current testLabel
- *
- * @param line The line where the assertion was made
- */
-void CLV_FAIL(uint line);
-
-/**
  * Setup code for testing suite, does memory allocations.
  */
 void CLV_SETUP();
