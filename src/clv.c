@@ -1,11 +1,14 @@
 #include "clv.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 static const char clvPass[] = "\x1b[42;30m  OK  \x1b[0m";
 static const char clvFail[] = "\x1b[41;30m FAIL \x1b[0m";
 static uint testCount = 0;
 char *testLabel;
+
+/* Setup Abstraction ------------------------------------------------------- */
 
 void CLV_SETUP() {
   // dynamically allocate testLabel
@@ -17,7 +20,7 @@ void CLV_SETUP() {
 void CLV_TEARDOWN() { free(testLabel); }
 void CLV_UPDATE_LABEL(char *label) { strcpy(testLabel, label); }
 
-/* Asserts ---------------------------------------------------*/
+/* Asserts ----------------------------------------------------------------- */
 
 void CLV_ASSERT(CLV_BOOL condition, uint line) {
   testCount++;
