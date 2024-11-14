@@ -20,6 +20,9 @@ This framework adopts a *plug-and-play* mindset when it comes to testing, believ
 git clone https://github.com/44mira/clv
 cd clv
 ```
+
+> INSTRUCTIONS PAST THIS POINT ARE STILL WIP! The `clv` binary does not exist yet.
+
 3. (OPTIONAL) Build `clv` from source.
 ```bash
 make
