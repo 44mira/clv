@@ -17,7 +17,7 @@ This framework adopts a *plug-and-play* mindset when it comes to testing, believ
     - A C compiler (`gcc`, `clang`)
     - `git`
     - `make`
-2. Clone this repository.
+2. Clone this repository (or install a release).
 ```bash
 git clone https://github.com/44mira/clv
 cd clv
@@ -27,9 +27,6 @@ cd clv
 go build clv.go     # requires go
 ```
 4. (OPTIONAL) Add the `clv` binary to your system `PATH`.
-```bash
-make tests
-```
 
 ## Usage
 
@@ -90,12 +87,19 @@ int main() {
 }
 ```
 
+> Make sure to edit the `Makefile` so that your C file gets linked!
+
 Output:
-```
+```bash
+$ make tests
+...
+$ ./test
+//=TESTS===========================================\\
   OK   | TEST #01 LINE 8    
   OK   | TEST #02 LINE 10   
  FAIL  | TEST #03 LINE 16    | 4 is not equal to 5
  FAIL  | TEST #04 LINE 20    | 4 is an odd number
+\\=TESTS===========================================//
 ```
 
 ## API Reference
