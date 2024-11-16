@@ -62,3 +62,15 @@ void CLV_ASSERT(CLV_BOOL condition, uint line) {
   // Invalidate label
   TEST_LABEL("");
 }
+
+void CLV_ASSERT_STRING_EQUAL(char *string1, char *string2, uint line) {
+  testCount++;
+
+  if (strcmp(string1, string2) == 0) {
+    CLV_PASS(line);
+  } else {
+    CLV_FAIL(line);
+  }
+
+  TEST_LABEL("");
+}

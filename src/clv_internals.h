@@ -40,4 +40,13 @@ void CLV_TEARDOWN();
  */
 void CLV_UPDATE_LABEL(char *label);
 
+/**
+ * Check whether two strings are equal.
+ *
+ * @param string1 The first string to be compared
+ * @param string2 The second string to be compared
+ * @param line The line where the assertion was made
+ */
+void CLV_ASSERT_STRING_EQUAL(char *string1, char *string2, uint line);
+
 #endif

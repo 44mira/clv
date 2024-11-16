@@ -7,6 +7,8 @@
 #define ASSERT(condition) CLV_ASSERT(condition, __LINE__)
 #define ASSERT_TRUE(condition) ASSERT(condition)
 #define ASSERT_FALSE(condition) ASSERT(!condition)
+#define ASSERT_STRING_EQUAL(string1, string2)                                  \
+  CLV_ASSERT_STRING_EQUAL(string1, string2, __LINE__)
 #define TEST_LABEL(label) CLV_UPDATE_LABEL(label)
 
 #define SETUP CLV_SETUP()
