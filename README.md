@@ -46,6 +46,28 @@ make tests
 > NOTE: `make tests` will temporarily create a `build` directory and then clean it up afterwards, removing it. This will overwrite any existing directory named `build`! If you do not want this behavior, you can edit it in the Makefile.
 
 Example:
+
+```bash
+$ cd myProject
+$ clv init
+The tests/ directory has been created.
+
+$ ls
+my_code.c
+my_code.h
+tests/
+Makefile
+
+$ clv create smoke
+The tests have been created.
+
+$ ls tests/
+clv.h
+clv.c
+clv_internals.h
+smoke_test.c
+```
+
 ```c
 #include "clv.h"
 #include <stdio.h>
