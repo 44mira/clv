@@ -1,6 +1,10 @@
 #ifndef CLV_HEADER
 #define CLV_HEADER
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "clv_internals.h"
 
 /* Macros ------------------------------------------------------------------ */
@@ -16,4 +20,7 @@
   CLV_TEARDOWN();                                                              \
   return 0
 
+#ifdef __cplusplus
+}
+#endif
 #endif

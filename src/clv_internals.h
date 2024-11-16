@@ -38,7 +38,7 @@ void CLV_TEARDOWN();
  *
  * @param label The new label to be set
  */
-void CLV_UPDATE_LABEL(char *label);
+void CLV_UPDATE_LABEL(const char *label);
 
 /**
  * Check whether two strings are equal.
