@@ -102,7 +102,7 @@ func main() {
 			log.Fatalf("An error has occurred in creating the tests directory: %v\n", err.Error())
 		}
 
-		fmt.Println("The tests/ directory has been created.")
+		fmt.Println("The tests directory has been created.")
 	case "create":
 		if len(os.Args) < 3 {
 			log.Fatalln("Please provide the test name(s).")
