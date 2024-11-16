@@ -22,28 +22,28 @@ This framework adopts a *plug-and-play* mindset when it comes to testing, believ
 git clone https://github.com/44mira/clv
 cd clv
 ```
-
-> INSTRUCTIONS PAST THIS POINT ARE STILL WIP! The `clv` binary does not exist yet.
-
 3. (OPTIONAL) Build `clv` from source.
 ```bash
-make
+go build clv.go     # requires go
 ```
-4. (OPTIONAL) Add the `clv` to your system `PATH`.
-5. (OPTIONAL) Build the tests from source. You can add lines to test in `tests/test.c`
+4. (OPTIONAL) Add the `clv` binary to your system `PATH`.
 ```bash
 make tests
 ```
 
 ## Usage
 
-1. Run `clv` (or the path to the `clv` binary) in your project's root folder. This should create a directory named `tests/` containing the library files for CLV.
+1. Run `clv init` (or the path to the `clv` binary) in your project's root folder. This should create a directory named `tests/` containing the library files for CLV.
+
+> NOTE: `clv init` **will** overwrite directories.
+
 2. Create test files in this directory for your usecase. These files should end in a `_test.c` or `_test.cpp` suffix.
     - Alternatively, you can use `clv create <test_name> [... <test_name>]` to create a test from a base template.
         - Brackets in this notation signify that `clv create` can create multiple test files with the same command.
-3. Run `clv sync` to update the `Makefile`. (You can also just do this manually)
-4. You can now write your tests!
-5. To run your tests, first compile them with `make tests` and then simply run the `test` binary found in your project root folder.
+    - Missing this step will cause an error in building the tests.
+3. You can now write your tests!
+4. To run your tests, first compile them with `make tests` and then simply run the `test` binary found in your project root folder.
+> NOTE: `make tests` will temporarily create a `build` directory and then clean it up afterwards, removing it. This will overwrite any existing directory named `build`! If you do not want this behavior, you can edit it in the Makefile.
 
 Example:
 ```c
