@@ -6,6 +6,7 @@
 enum __CLV_BOOL { FALSE, TRUE }; /* simple boolean type */
 #define CLV_BOOL enum __CLV_BOOL
 
+typedef const char *CLV_STRING;
 typedef unsigned int uint;
 
 #define TEXT_RED(text) "\x1b[31m" text "\x1b[0m"
@@ -85,7 +86,7 @@ void CLV_TEARDOWN();
  *
  * @param label The new label to be set
  */
-void CLV_UPDATE_LABEL(const char *label);
+void CLV_UPDATE_LABEL(CLV_STRING label);
 
 /**
  * Check whether two strings are equal.
@@ -94,7 +95,6 @@ void CLV_UPDATE_LABEL(const char *label);
  * @param string2 The second string to be compared
  * @param line The line where the assertion was made
  */
-void CLV_ASSERT_STRING_EQUAL(const char *string1, const char *string2,
-                             uint line);
+void CLV_ASSERT_STRING_EQUAL(CLV_STRING string1, CLV_STRING string2, uint line);
 
 #endif

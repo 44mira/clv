@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-static const char clvPass[] = "\x1b[42;30m  OK  \x1b[0m";
-static const char clvFail[] = "\x1b[41;30m FAIL \x1b[0m";
+static CLV_STRING clvPass = "\x1b[42;30m  OK  \x1b[0m";
+static CLV_STRING clvFail = "\x1b[41;30m FAIL \x1b[0m";
 static uint testCount = 0;
 char *testLabel;
 
@@ -56,7 +56,7 @@ void CLV_TEARDOWN() {
       "\n\\\\================================================================="
       "============//\n");
 }
-void CLV_UPDATE_LABEL(const char *label) { strcpy(testLabel, label); }
+void CLV_UPDATE_LABEL(CLV_STRING label) { strcpy(testLabel, label); }
 
 /* Asserts ----------------------------------------------------------------- */
 
@@ -73,7 +73,7 @@ void CLV_ASSERT(CLV_BOOL condition, uint line) {
   TEST_LABEL("");
 }
 
-void CLV_ASSERT_STRING_EQUAL(const char *string1, const char *string2,
+void CLV_ASSERT_STRING_EQUAL(CLV_STRING string1, CLV_STRING string2,
                              uint line) {
   testCount++;
 
