@@ -13,14 +13,7 @@ typedef unsigned int uint;
 
 /* Declarations ------------------------------------------------------------ */
 
-/**
- * Macro for generating type-generic array equality assertions.
- *
- * @param type The type of the array
- * @param size The size of the array
- * @param array1 The first array to be compared
- * @param array2 The second array to be compared
- */
+// generic array comparison macro
 #define CLV_ASSERT_ARRAY_EQUAL(type)                                           \
   void ASSERT_##type##_ARRAY_EQUAL(uint size, type *array1, type *array2) {    \
     for (uint i = 0; i < size; i++) {                                          \
@@ -41,6 +34,29 @@ typedef unsigned int uint;
    * @param array2 The second array to be compared                             \
    */                                                                          \
   void ASSERT_##type##_ARRAY_EQUAL(uint size, type *array1, type *array2);
+
+// generic array comparison macro
+#define CLV_ASSERT_ARRAY_EACH_EQUAL(type)                                      \
+  void ASSERT_##type##_ARRAY_EACH_EQUAL(uint size, type target,                \
+                                        type *array2) {                        \
+    for (uint i = 0; i < size; i++) {                                          \
+      if (target != array2[i]) {                                               \
+        CLV_FAIL(__LINE__);                                                    \
+        return;                                                                \
+      }                                                                        \
+    }                                                                          \
+    CLV_PASS(__LINE__);                                                        \
+  }
+
+#define CLV_ASSERT_ARRAY_EACH_EQUAL_SIG(type)                                  \
+  /**                                                                          \
+   * Compares all the elements of an array to a single value                   \
+   *                                                                           \
+   * @param size The size of the arrays                                        \
+   * @param target The value to match per element                              \
+   * @param array2 The second array to be compared                             \
+   */                                                                          \
+  void ASSERT_##type##_ARRAY_EACH_EQUAL(uint size, type target, type *array2);
 
 /**
  * Check whether a condition is true.
