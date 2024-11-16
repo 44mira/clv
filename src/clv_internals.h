@@ -19,6 +19,7 @@ typedef unsigned int uint;
 // generic array comparison macro
 #define CLV_ASSERT_ARRAY_EQUAL(type)                                           \
   void ASSERT_##type##_ARRAY_EQUAL(uint size, type *array1, type *array2) {    \
+    testCount++;                                                               \
     for (uint i = 0; i < size; i++) {                                          \
       if (array1[i] != array2[i]) {                                            \
         CLV_FAIL(__LINE__);                                                    \
@@ -26,6 +27,7 @@ typedef unsigned int uint;
       }                                                                        \
     }                                                                          \
     CLV_PASS(__LINE__);                                                        \
+    TEST_LABEL("");                                                            \
   }
 
 #define CLV_ASSERT_ARRAY_EQUAL_SIG(type)                                       \
@@ -42,6 +44,7 @@ typedef unsigned int uint;
 #define CLV_ASSERT_ARRAY_EACH_EQUAL(type)                                      \
   void ASSERT_##type##_ARRAY_EACH_EQUAL(uint size, type target,                \
                                         type *array2) {                        \
+    testCount++;                                                               \
     for (uint i = 0; i < size; i++) {                                          \
       if (target != array2[i]) {                                               \
         CLV_FAIL(__LINE__);                                                    \
@@ -49,6 +52,7 @@ typedef unsigned int uint;
       }                                                                        \
     }                                                                          \
     CLV_PASS(__LINE__);                                                        \
+    TEST_LABEL("");                                                            \
   }
 
 #define CLV_ASSERT_ARRAY_EACH_EQUAL_SIG(type)                                  \
