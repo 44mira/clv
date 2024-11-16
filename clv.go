@@ -18,6 +18,11 @@ func writeFile(path, content string) error {
 
 // [[ createTestDir ]] {{{
 func createTestDir() error {
+	testsDir := "tests"
+	if len(os.Args) == 3 {
+		testsDir = os.Args[2]
+	}
+
 	files := []string{"src/clv.c", "src/clv.h", "src/clv_internals.h"}
 
 	for _, file := range files {
@@ -26,7 +31,7 @@ func createTestDir() error {
 			return err
 		}
 
-		target := filepath.Join("tests", filepath.Base(file))
+		target := filepath.Join(testsDir, filepath.Base(file))
 
 		err = writeFile(target, string(content))
 		if err != nil {
@@ -71,28 +76,33 @@ func createTests() error {
 
 // }}}
 
+// [[ displayHelp ]] {{{
 func displayHelp() {
 	fmt.Printf(`
-    c'est la vie
+c'est la vie
 
-    clv init                                    -- initialize the tests/ directory
-    clv help                                    -- display this menu
-    clv create <test_name> [ ... <test_name> ]  -- create a test template
-    `)
+clv init [tests directory]                  -- initialize the tests directory (defaults to 'tests/')
+clv help                                    -- display this menu
+clv create <test_name> [ ... <test_name> ]  -- create a test template
+`)
 }
+
+// }}}
 
 func main() {
 	if len(os.Args) == 1 {
-		err := createTestDir()
-		if err != nil {
-			log.Fatalf("An error has occurred in creating the tests/ directory: %v\n", err.Error())
-		}
-
-		fmt.Println("The tests/ directory has been created.")
+		displayHelp()
 		return
 	}
 
 	switch os.Args[1] {
+	case "init":
+		err := createTestDir()
+		if err != nil {
+			log.Fatalf("An error has occurred in creating the tests directory: %v\n", err.Error())
+		}
+
+		fmt.Println("The tests/ directory has been created.")
 	case "create":
 		if len(os.Args) < 3 {
 			log.Fatalln("Please provide the test name(s).")
