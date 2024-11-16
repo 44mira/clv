@@ -42,19 +42,17 @@ void CLV_SETUP() {
   // dynamically allocate testLabel
   testLabel = (char *)malloc(LABEL_SIZE * sizeof testLabel);
   printf("//"
-         "= " TEXT_BOLD(
-             "TESTS") " ===================================================="
-                      "========="
-                      "========\\\\\n\n");
+         "= " TEXT_BOLD("TESTS") " =========================================="
+                                 "========="
+                                 "========\\\\\n\n");
 
   // initialize testLabel
   TEST_LABEL("");
 }
 void CLV_TEARDOWN() {
   free(testLabel);
-  printf(
-      "\n\\\\================================================================="
-      "============//\n");
+  printf("\n\\\\======================================================="
+         "============//\n");
 }
 void CLV_UPDATE_LABEL(CLV_STRING label) { strcpy(testLabel, label); }
 
