@@ -9,6 +9,8 @@ enum __CLV_BOOL { FALSE, TRUE }; /* simple boolean type */
 typedef unsigned int uint;
 
 #define TEXT_RED(text) "\x1b[31m" text "\x1b[0m"
+#define TEXT_GREEN(text) "\x1b[32m" text "\x1b[0m"
+#define TEXT_BOLD(text) "\x1b[1m" text "\x1b[0m"
 #define LABEL_SIZE 255
 
 /* Declarations ------------------------------------------------------------ */
