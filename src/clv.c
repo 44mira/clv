@@ -63,7 +63,8 @@ void CLV_ASSERT(CLV_BOOL condition, uint line) {
   TEST_LABEL("");
 }
 
-void CLV_ASSERT_STRING_EQUAL(char *string1, char *string2, uint line) {
+void CLV_ASSERT_STRING_EQUAL(const char *string1, const char *string2,
+                             uint line) {
   testCount++;
 
   if (strcmp(string1, string2) == 0) {

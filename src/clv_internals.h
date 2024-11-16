@@ -47,6 +47,7 @@ void CLV_UPDATE_LABEL(char *label);
  * @param string2 The second string to be compared
  * @param line The line where the assertion was made
  */
-void CLV_ASSERT_STRING_EQUAL(char *string1, char *string2, uint line);
+void CLV_ASSERT_STRING_EQUAL(const char *string1, const char *string2,
+                             uint line);
 
 #endif
