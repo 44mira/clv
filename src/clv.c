@@ -46,7 +46,7 @@ void CLV_SETUP() {
   TEST_LABEL("");
 }
 void CLV_TEARDOWN() { free(testLabel); }
-void CLV_UPDATE_LABEL(char *label) { strcpy(testLabel, label); }
+void CLV_UPDATE_LABEL(const char *label) { strcpy(testLabel, label); }
 
 /* Asserts ----------------------------------------------------------------- */
 
