@@ -14,6 +14,35 @@ typedef unsigned int uint;
 /* Declarations ------------------------------------------------------------ */
 
 /**
+ * Macro for generating type-generic array equality assertions.
+ *
+ * @param type The type of the array
+ * @param size The size of the array
+ * @param array1 The first array to be compared
+ * @param array2 The second array to be compared
+ */
+#define CLV_ASSERT_ARRAY_EQUAL(type)                                           \
+  void ASSERT_##type##_ARRAY_EQUAL(uint size, type *array1, type *array2) {    \
+    for (uint i = 0; i < size; i++) {                                          \
+      if (array1[i] != array2[i]) {                                            \
+        CLV_FAIL(__LINE__);                                                    \
+        return;                                                                \
+      }                                                                        \
+    }                                                                          \
+    CLV_PASS(__LINE__);                                                        \
+  }
+
+#define CLV_ASSERT_ARRAY_EQUAL_SIG(type)                                       \
+  /**                                                                          \
+   * Compares two arrays of the same type and size                             \
+   *                                                                           \
+   * @param size The size of the arrays                                        \
+   * @param array1 The first array to be compared                              \
+   * @param array2 The second array to be compared                             \
+   */                                                                          \
+  void ASSERT_##type##_ARRAY_EQUAL(uint size, type *array1, type *array2);
+
+/**
  * Check whether a condition is true.
  *
  * Consumes the current testLabel, if it exists.
