@@ -36,7 +36,7 @@ make tests
 ## Usage
 
 1. Run `clv` (or the path to the `clv` binary) in your project's root folder. This should create a directory named `tests/` containing the library files for CLV.
-2. Create test files in this directory for your usecase. These files should end in a `_test.c` suffix.
+2. Create test files in this directory for your usecase. These files should end in a `_test.c` or `_test.cpp` suffix.
     - Alternatively, you can use `clv create <test_name> [... <test_name>]` to create a test from a base template.
         - Brackets in this notation signify that `clv create` can create multiple test files with the same command.
 3. Run `clv sync` to update the `Makefile`. (You can also just do this manually)
@@ -74,3 +74,6 @@ Output:
  FAIL  | TEST #04 LINE 20    | 4 is an odd number
 ```
 
+## API Reference
+
+Check out the [wiki!](https://github.com/44mira/clv/wiki/API-Reference)
