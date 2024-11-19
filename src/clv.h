@@ -23,19 +23,19 @@ CLV_ASSERT_ARRAY_EQUAL_SIG(short)
 CLV_ASSERT_ARRAY_EQUAL_SIG(long)
 CLV_ASSERT_ARRAY_EQUAL_SIG(uint)
 
-#define ASSERT_int_ARRAY_EQUAL(size, array1, array2)                           \
+#define ASSERT_INT_ARRAY_EQUAL(size, array1, array2)                           \
   __ASSERT_int_ARRAY_EQUAL(size, array1, array2, __LINE__)
-#define ASSERT_float_ARRAY_EQUAL(size, array1, array2)                         \
+#define ASSERT_FLOAT_ARRAY_EQUAL(size, array1, array2)                         \
   __ASSERT_float_ARRAY_EQUAL(size, array1, array2, __LINE__)
-#define ASSERT_double_ARRAY_EQUAL(size, array1, array2)                        \
+#define ASSERT_DOUBLE_ARRAY_EQUAL(size, array1, array2)                        \
   __ASSERT_double_ARRAY_EQUAL(size, array1, array2, __LINE__)
-#define ASSERT_char_ARRAY_EQUAL(size, array1, array2)                          \
+#define ASSERT_CHAR_ARRAY_EQUAL(size, array1, array2)                          \
   __ASSERT_char_ARRAY_EQUAL(size, array1, array2, __LINE__)
-#define ASSERT_short_ARRAY_EQUAL(size, array1, array2)                         \
+#define ASSERT_SHORT_ARRAY_EQUAL(size, array1, array2)                         \
   __ASSERT_short_ARRAY_EQUAL(size, array1, array2, __LINE__)
-#define ASSERT_long_ARRAY_EQUAL(size, array1, array2)                          \
+#define ASSERT_LONG_ARRAY_EQUAL(size, array1, array2)                          \
   __ASSERT_long_ARRAY_EQUAL(size, array1, array2, __LINE__)
-#define ASSERT_uint_ARRAY_EQUAL(size, array1, array2)                          \
+#define ASSERT_UINT_ARRAY_EQUAL(size, array1, array2)                          \
   __ASSERT_uint_ARRAY_EQUAL(size, array1, array2, __LINE__)
 
 CLV_ASSERT_ARRAY_EACH_EQUAL_SIG(int)
